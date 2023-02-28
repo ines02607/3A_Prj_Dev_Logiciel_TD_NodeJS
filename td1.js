@@ -15,6 +15,7 @@ let users = JSON.parse(rawdata);
 // On crée un tableau pour stocker les pays et leur nombre d'occurences
 let tabpays = new Array(); // déclaration du tableau
 
+//test
 // On souhaite parcourir le tableau
 // On va venir compter le nombre d'occurence pour ne pas afficher plusieurs fois le meme pays
 
