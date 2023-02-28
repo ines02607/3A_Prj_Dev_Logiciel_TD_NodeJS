@@ -1,14 +1,11 @@
 // TD1 Méthode de Développement Logiciel
 // Inès Mazouz INFO 3A
 // =================================================================================
-
 // On vient lire le fichier users.json
-
 // on déclare l'utilisation de fs
 const fs = require('fs'); 
 // on donne le fichier à lire nommé users.json
-let rawdata = fs.readFileSync('users.json');
-
+let rawdata = fs.readFileSync("users.json");
 // on transforme le fichier texte en objet pour pouvoir travailler dessus
 let users = JSON.parse(rawdata);
 
@@ -20,7 +17,7 @@ let tabpays = new Array(); // déclaration du tableau
 // On va venir compter le nombre d'occurence pour ne pas afficher plusieurs fois le meme pays
 
 // affichage à l'écran
-console.log('Pays & Occurences');
+console.log("Pays & Occurences");
 
 let i = 0;
 //boucle pour récupérer les pays
