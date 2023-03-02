@@ -2,6 +2,7 @@
 // Inès Mazouz INFO 3A
 // =================================================================================
 // On vient lire le fichier users.json
+// test
 // on déclare l'utilisation de fs
 const fs = require('fs'); 
 // on donne le fichier à lire nommé users.json
