@@ -1,4 +1,7 @@
-# 2023MDL1
+# Comment compiler ?
+
+$node nomfichier.js argument
+L'argument est "company" ou "country"
 
 Objectif du TD : Introduction à javascript-NodeJS
 
@@ -34,3 +37,4 @@ Pour lire un fichier :
 
 const fs = require('fs');
 let rawdata = fs.readFileSync('student.json');
+
