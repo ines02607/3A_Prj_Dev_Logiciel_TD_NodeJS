@@ -68,6 +68,12 @@ var arguments = process.argv; // on va ajouter l'argument à prendre en compte l
 // on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
 let motcle = arguments[2];
 
+var readlineSync = require('readline-sync'),
+choix = ['Pays','Entreprises'],
+index = readlineSync.keyInSelect(choix, 'Que souhaitez-vous afficher ?');
+console.log('Ok, voici l affichage des ' + choix[index] + ' et leur occurence !');
+
+
 // = = = Tri décroissant = = = 
 
 // on vient stocker le résultat de la fonction dans une variable result
