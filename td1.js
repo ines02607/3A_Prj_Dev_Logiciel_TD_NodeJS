@@ -84,3 +84,4 @@ result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise 
 
 // on vient retourner le résultat trié dans l'ordre décroissant
 console.log(result);
+//test
