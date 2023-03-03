@@ -13,19 +13,22 @@ utilisateurs et qui renvoie :
 
 // On crée une fonction qui trouve le nombre d'occurence
 
+/**
+ * 
+ * @param {string[]} tab list of xx 
+ * @param {*} motcle 
+ * @returns 
+ */
 function calculOccurence(tab, motcle)
 {
-	// on crée un tableau de sortie vide
-	let tab2 = [];	
-// on utilise forEach pour chaque itération du tableau en entrée
-tab.forEach((x)=>
-{
-// On vérifie si il y a déjà un objet qui contient la valeur cherchée dans le tableau de sortie
-	if(tab2.some
-		((val)=>{ 
-			return val[motcle] == x[motcle] ;
-		})
-	){
+// on crée un tableau de sortie vide
+	let tab2 = [];
+	// on utilise forEach pour chaque itération du tableau en entrée
+	tab.forEach((x)=> {
+	// On vérifie si il y a déjà un objet qui contient la valeur cherchée dans le tableau de sortie
+	
+		if(tab2.some((val)=>{ return val[motcle] == x[motcle] ;})
+		){
 			
 			// Si oui, on incrémente l'occurence de 1
 			tab2.forEach((k)=>{
