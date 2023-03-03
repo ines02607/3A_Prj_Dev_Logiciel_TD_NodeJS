@@ -65,22 +65,29 @@ let rawdata = fs.readFileSync("users.json");
 let tab = JSON.parse(rawdata);
 
 // = = = Argument à saisir = = = 
-var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
+//var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
 
 // soit country, soit company (au choix) à écrire après : node nom.js argument
 // on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
-let motcle = arguments[2];
+//let motcle = arguments[2];
 
 var readlineSync = require('readline-sync'),
 choix = ['Pays','Entreprises'],
 index = readlineSync.keyInSelect(choix, 'Que souhaitez-vous afficher ?');
 console.log('Ok, voici l affichage des ' + choix[index] + ' et leur occurence !');
 
-
+if (choix=1){
+	let motcle ="country";
+	var result = (calculOccurence(tab, motcle));
+}
+if (choix=2) {
+	let motcle="company";
+	var result = (calculOccurence(tab, motcle));
+}
 // = = = Tri décroissant = = = 
 
 // on vient stocker le résultat de la fonction dans une variable result
-var result = (calculOccurence(tab, motcle));
+//var result = (calculOccurence(tab, motcle));
 
 // on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
 result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
