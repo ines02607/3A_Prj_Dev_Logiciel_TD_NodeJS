@@ -1,0 +1,7 @@
+[
+  { company: 'Google', occurrence: 2017 },
+  { company: 'Microsoft', occurrence: 2012 },
+  { company: 'Apple', occurrence: 2003 },
+  { company: 'Amazon', occurrence: 1992 },
+  { company: 'Facebook', occurrence: 1975 }
+]

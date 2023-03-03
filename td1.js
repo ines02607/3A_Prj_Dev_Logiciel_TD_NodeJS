@@ -1,53 +1,80 @@
-// TD1 Méthode de Développement Logiciel
-// Inès Mazouz INFO 3A
-// =================================================================================
-// On vient lire le fichier users.json
-// test
-// on déclare l'utilisation de fs
-const fs = require('fs'); 
-// on donne le fichier à lire nommé users.json
-let rawdata = fs.readFileSync("users.json");
-// on transforme le fichier texte en objet pour pouvoir travailler dessus
-let users = JSON.parse(rawdata);
+// TP1 - Méthode de Développement Logiciel
+// Créateur : Inès Mazouz
+// Classe : INFO 3A
 
-// On crée un tableau pour stocker les pays et leur nombre d'occurences
-let tabpays = new Array(); // déclaration du tableau
+/* 
+=================================================================================
+Objectif : réaliser une application en NodeJS qui permet de lire le fichier des
+utilisateurs et qui renvoie : 
+    - une liste de pays et le compteur trié par ordre décroissant
+    - une liste des sociétés et le compteur trié par ordre décroissant
+=================================================================================
+*/
 
-//test
-// On souhaite parcourir le tableau
-// On va venir compter le nombre d'occurence pour ne pas afficher plusieurs fois le meme pays
+// On crée une fonction qui trouve le nombre d'occurence
 
-// affichage à l'écran
-console.log("Pays & Occurences");
-
-let i = 0;
-//boucle pour récupérer les pays
-for (let j=0; j<users.length; j++)
-{   
-    // on initialise idem à true
-    let idem = true;
-    let compt = 0;
-    for (let k = 0; k<tabpays.length; k++) {
-        // si le pays est déjà dans le tab
-        if (users[j].country == tabpays[k])
-        {  
-            // on renvoie faux
-            idem = false;
-            compt = compt+1;
-        }
-    }    
-
-    // si c'est nouveau on renvoie true
-    if (idem == true)
-    {
-        // on copie donc dans le tab
-        tabpays[i]=users[j].country;
-        // on incrémente
-        i = i +1;
-    }
+function calculOccurence(tab, motcle)
+{
+	// on crée un tableau de sortie vide
+	let tab2 = [];	
+	// on utilise forEach pour chaque itération du tableau en entrée
+	tab.forEach((x)=>
+	{
+		// On vérifie si il y a déjà un objet qui contient la valeur cherchée dans le tableau de sortie
+		if(tab2.some
+			((val)=>{ 
+				return val[motcle] == x[motcle] ;
+			})
+		){
+			
+			// Si oui, on incrémente l'occurence de 1
+			tab2.forEach((k)=>{
+				if(k[motcle] === x[motcle])
+				{
+					k["occurrence"]++ ;
+				}
+			})
+			
+		}
+		else
+		// Sinon, on créé un nouvel objet dans le tableau et initialise l’objet avec le nom de la clé fournie
+		{
+		// et on initialise l'occurrence à 1
+			let a = {};
+			a[motcle] = x[motcle];
+			a["occurrence"] = 1 ;
+			tab2.push(a);
+		}
+	})
+	// on retourne le tableau de sortie avec noms des objets et occurences
+	return tab2
 }
 
-// Affichage de chaque pays une fois
+// = = = Lecture du fichier = = =
 
-console.log(tabpays);
+// on définie fs pour la lecture du fichier json
+const fs = require("fs");
 
+// on vient lire le fichier users.json
+let rawdata = fs.readFileSync("users.json");
+
+// on manipule le fichier via cet objet nommé tab
+let tab = JSON.parse(rawdata);
+
+// = = = Argument à saisir = = = 
+var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
+
+// soit country, soit company (au choix) à écrire après : node nom.js argument
+// on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
+let motcle = arguments[2];
+
+// = = = Tri décroissant = = = 
+
+// on vient stocker le résultat de la fonction dans une variable result
+var result = (calculOccurence(tab, motcle));
+
+// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
+result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
+
+// on vient retourner le résultat trié dans l'ordre décroissant
+console.log(result);
