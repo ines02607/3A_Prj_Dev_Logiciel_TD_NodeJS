@@ -69,20 +69,23 @@ let tab = JSON.parse(rawdata);
 
 // soit country, soit company (au choix) à écrire après : node nom.js argument
 // on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
-//let motcle = arguments[2];
 
-var readlineSync = require('readline-sync'),
-choix = ['Pays','Entreprises'],
-index = readlineSync.keyInSelect(choix, 'Que souhaitez-vous afficher ?');
+
+//var readlineSync = require('readline-sync'),
+//choix = ['Pays','Entreprises'],
+console.log('Que souhaitez-vous afficher ?');
+console.log('1 - Pays');
+console.log('2 -' );
+index = Number(readlineSync.question(""))
+//keyInSelect(choix, 'Que souhaitez-vous afficher ?');
+console.log();
 console.log('Ok, voici l affichage des ' + choix[index] + ' et leur occurence !');
 
-if (choix=1){
-	let motcle ="country";
-	var result = (calculOccurence(tab, motcle));
+if (index==1){
+	motcle = "country";
 }
-if (choix=2) {
-	let motcle="company";
-	var result = (calculOccurence(tab, motcle));
+if (index==2) {
+	motcle = "company";
 }
 // = = = Tri décroissant = = = 
 
