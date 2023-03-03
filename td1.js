@@ -6,8 +6,8 @@
 =================================================================================
 Objectif : réaliser une application en NodeJS qui permet de lire le fichier des
 utilisateurs et qui renvoie : 
-    - une liste de pays et le compteur trié par ordre décroissant
-    - une liste des sociétés et le compteur trié par ordre décroissant
+	- une liste de pays et le compteur trié par ordre décroissant
+	- une liste des sociétés et le compteur trié par ordre décroissant
 =================================================================================
 */
 
@@ -17,15 +17,15 @@ function calculOccurence(tab, motcle)
 {
 	// on crée un tableau de sortie vide
 	let tab2 = [];	
-	// on utilise forEach pour chaque itération du tableau en entrée
-	tab.forEach((x)=>
-	{
-		// On vérifie si il y a déjà un objet qui contient la valeur cherchée dans le tableau de sortie
-		if(tab2.some
-			((val)=>{ 
-				return val[motcle] == x[motcle] ;
-			})
-		){
+// on utilise forEach pour chaque itération du tableau en entrée
+tab.forEach((x)=>
+{
+// On vérifie si il y a déjà un objet qui contient la valeur cherchée dans le tableau de sortie
+	if(tab2.some
+		((val)=>{ 
+			return val[motcle] == x[motcle] ;
+		})
+	){
 			
 			// Si oui, on incrémente l'occurence de 1
 			tab2.forEach((k)=>{
@@ -35,7 +35,7 @@ function calculOccurence(tab, motcle)
 				}
 			})
 			
-		}
+		}//test
 		else
 		// Sinon, on créé un nouvel objet dans le tableau et initialise l’objet avec le nom de la clé fournie
 		{
