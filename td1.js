@@ -79,7 +79,7 @@ console.log('2 -' );
 index = Number(readlineSync.question(""))
 //keyInSelect(choix, 'Que souhaitez-vous afficher ?');
 console.log();
-console.log('Ok, voici l affichage des ' + choix[index] + ' et leur occurence !');
+console.log('Ok, voici l affichage des ' + choix[index] + " et leur occurence !");
 
 if (index==1){
 	motcle = "country";
