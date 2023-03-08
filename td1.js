@@ -71,4 +71,4 @@ else
 	console.log(result);
 }
 
-// COMPILATION : node nom.js argument
+// COMPILATION : node nom.js
