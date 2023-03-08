@@ -1,6 +1,6 @@
-// Fonction : Calcul de l'occurence du tableau
-
-// Lecture d'un fichier
+// ===========================================
+// 			Lecture des fichiers
+// ===========================================
 
 // on définie fs pour la lecture du fichier json
 const fs = require("fs");
@@ -9,6 +9,9 @@ let rawdata = fs.readFileSync("users.json");
 // on manipule le fichier via cet objet nommé tab
 let tab = JSON.parse(rawdata);
 
+// ===========================================
+// 			Calcul des occurences
+// ===========================================
 
 const occurence = { 
     occurence : function calculOccurence(tab, motcle)
@@ -45,5 +48,9 @@ const occurence = {
         return tab2;
     }
 };
+
+// ===========================================
+// 			Lien entre fichiers
+// ===========================================
 
 module.exports = occurence;
