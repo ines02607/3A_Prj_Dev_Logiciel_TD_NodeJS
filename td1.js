@@ -2,23 +2,17 @@
 // Créateur : Inès Mazouz
 // Classe : INFO 3A
 
-/* 
-=================================================================================
-Objectif : réaliser une application en NodeJS qui permet de lire le fichier des
-utilisateurs et qui renvoie : 
-	- une liste de pays et le compteur trié par ordre décroissant
-	- une liste des sociétés et le compteur trié par ordre décroissant
-=================================================================================
-*/
-
-// On crée une fonction qui trouve le nombre d'occurence
-
 /**
  * 
  * @param {string[]} tab list of xx 
  * @param {*} motcle 
  * @returns 
  */
+
+//appel des autres fichiers js
+const occurence = require("./occurence");
+
+
 function calculOccurence(tab, motcle)
 {
 // on crée un tableau de sortie vide
@@ -53,7 +47,7 @@ function calculOccurence(tab, motcle)
 	return tab2
 }
 
-// = = = Lecture du fichier = = =
+/*// = = = Lecture du fichier = = =
 
 // on définie fs pour la lecture du fichier json
 const fs = require("fs");
@@ -65,11 +59,11 @@ let rawdata = fs.readFileSync("users.json");
 let tab = JSON.parse(rawdata);
 
 // = = = Argument à saisir = = = 
-//var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
+var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
 
+let motcle = arguments;
 // soit country, soit company (au choix) à écrire après : node nom.js argument
 // on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
-
 
 //var readlineSync = require('readline-sync'),
 //choix = ['Pays','Entreprises'],
@@ -86,11 +80,36 @@ if (index==1){
 }
 if (index==2) {
 	motcle = "company";
-}
+}*/
+// = = = Tri décroissant = = = 
+// = = = Lecture du fichier = = =
+
+// on définie fs pour la lecture du fichier json
+const fs = require("fs");
+
+// on vient lire le fichier users.json
+let rawdata = fs.readFileSync("users.json");
+
+// on manipule le fichier via cet objet nommé tab
+let tab = JSON.parse(rawdata);
+
+// = = = Argument à saisir = = = 
+var arguments = process.argv; // on va ajouter l'argument à prendre en compte lors de la compilation
+
+// soit country, soit company (au choix) à écrire après : node nom.js argument
+// on vient définir la clé à prendre en compte comme l'argument saisie lors de la compilation
+let motcle = arguments[2];
+
+//var readlineSync = require('readline-sync'),
+//choix = ['Pays','Entreprises'],
+//index = readlineSync.keyInSelect(choix, 'Que souhaitez-vous afficher ?');
+//console.log('Ok, voici l affichage des ' + choix[index] + ' et leur occurence !');
+
+
 // = = = Tri décroissant = = = 
 
 // on vient stocker le résultat de la fonction dans une variable result
-//var result = (calculOccurence(tab, motcle));
+var result = (calculOccurence(tab, motcle));
 
 // on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
 result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
