@@ -10,9 +10,9 @@
  */
 
 //appel des autres fichiers js
-const occurence = require("./occurence");
+const occurence = require("./occurence.js");
 
-
+/*
 function calculOccurence(tab, motcle)
 {
 // on crée un tableau de sortie vide
@@ -46,8 +46,10 @@ function calculOccurence(tab, motcle)
 	// on retourne le tableau de sortie avec noms des objets et occurences
 	return tab2
 }
+*/
 
-/*// = = = Lecture du fichier = = =
+/*
+// = = = Lecture du fichier = = =
 
 // on définie fs pour la lecture du fichier json
 const fs = require("fs");
@@ -82,6 +84,9 @@ if (index==2) {
 	motcle = "company";
 }*/
 // = = = Tri décroissant = = = 
+
+
+
 // = = = Lecture du fichier = = =
 
 // on définie fs pour la lecture du fichier json
@@ -109,7 +114,7 @@ let motcle = arguments[2];
 // = = = Tri décroissant = = = 
 
 // on vient stocker le résultat de la fonction dans une variable result
-var result = (calculOccurence(tab, motcle));
+var result = occurence.occurence(tab, motcle);
 
 // on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
 result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
