@@ -1,7 +1,6 @@
 # Comment compiler ?
 
-$node nomfichier.js argument
-> L'argument est "company" ou "country"
+$ node nomfichier.js
 
 # Objectif du TD : Introduction à javascript-NodeJS
 
