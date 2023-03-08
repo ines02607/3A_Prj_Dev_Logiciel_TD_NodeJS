@@ -61,7 +61,7 @@ if (nb == 1)
 	// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
 	result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
 	// on vient retourner le résultat trié dans l'ordre décroissant
-	console.log(result);
+	console.table(result);
 }
 //else
 else {
@@ -74,7 +74,7 @@ else {
 		// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
 		result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
 		// on vient retourner le résultat trié dans l'ordre décroissant
-		console.log(result);
+		console.table(result);
 	}
 	else {
 		console.log(" \x1b[1m\x1b[93m \n Vous avez demandé la sortie du menu. Aurevoir ! \n \x1b[39m \x1b[22m");
