@@ -40,18 +40,22 @@ let motcle = arguments[2];
 // ===========================================
 
 var readlineSync = require("readline-sync");
-
-console.log("\x1b[45m%s\x1b[0m", "\n Quel compteur voulez-vous voir ?");
-console.log("\x1b[36m%s\x1b[0m", "\n 1- Pays" );
-console.log("\x1b[36m%s\x1b[0m", " 2- Societe" );
-console.log("\x1b[45m%s\x1b[0m", "\n");
+// Ligne de délimitation
+console.log("\x1b[47m%s\x1b[49m", "\n");
+// Affichage
+console.log(" \x1b[1m\x1b[93m \n Bonjour ! Que souhaitez-vous afficher ? \x1b[39m \x1b[22m");
+console.log(" \x1b[1m\x1b[37m \n 	> Taper 1 pour afficher les pays & leurs occurences \x1b[39m \x1b[22m");
+console.log(" \x1b[1m\x1b[37m	> Taper 2 pour afficher les sociétés & leurs occurences \x1b[39m \x1b[22m");
+console.log(" \x1b[1m\x1b[37m	> Taper un autre caractère pour sortir du menu ! \x1b[39m \x1b[22m");
+// Ligne de délimitation
+console.log("\x1b[47m%s\x1b[49m", "\n");
 
 const nb = Number(readlineSync.question(""));
 
 if (nb == 1)
 {
     //Affichage à l'écran
-    console.log("  Pays et Compteur "); 
+	console.log(" \x1b[1m\x1b[93m \n Vous avez sélectionné : Pays & occurences \n \x1b[39m \x1b[22m");
 	motcle = "country";
 	var result = occurence.occurence(tab, motcle);
 	// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
@@ -59,16 +63,22 @@ if (nb == 1)
 	// on vient retourner le résultat trié dans l'ordre décroissant
 	console.log(result);
 }
-else 
-{ 
-    //Affichage à l'écran
-	console.log("  Société et Compteur "); 
-	motcle = "company";
-	var result = occurence.occurence(tab, motcle);
-	// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
-	result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
-	// on vient retourner le résultat trié dans l'ordre décroissant
-	console.log(result);
+//else
+else {
+	if (nb == 2) 
+	{ 
+		//Affichage à l'écran
+		console.log(" \x1b[1m\x1b[93m \n Vous avez sélectionné : Sociétés & occurences \n \x1b[39m \x1b[22m");
+		motcle = "company";
+		var result = occurence.occurence(tab, motcle);
+		// on vient effectuer un tri inverse (b - a pour un tri décroissant // a - b pour un tri croissant)
+		result.sort(function(a,b) {return b.occurrence - a.occurrence}); // on précise qu'on compare des occurences
+		// on vient retourner le résultat trié dans l'ordre décroissant
+		console.log(result);
+	}
+	else {
+		console.log(" \x1b[1m\x1b[93m \n Vous avez demandé la sortie du menu. Aurevoir ! \n \x1b[39m \x1b[22m");
+		}
 }
 
-// COMPILATION : node nom.js
+// COMPILATION : node td1.js
