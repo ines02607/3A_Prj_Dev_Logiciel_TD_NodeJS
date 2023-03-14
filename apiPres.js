@@ -22,6 +22,8 @@ const apiServ = {
         });
 
         app.get("api/customers", function(req,res) {
+
+            const number = req.query.number; 
             const customers = business.getAllCustomers();
             res.json(customers);
         });
