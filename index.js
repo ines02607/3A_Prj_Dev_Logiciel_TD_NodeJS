@@ -3,11 +3,20 @@ const apiServ = require("./apiPres");
 const port = 3000;
 
 function main() {
-    //start api server
-    apiServ.start(port);
 
-    //start console 
-    //pres.start();
+    apiServ.start(port);
+    pres.start();
+    
+    /*
+    app.get("/", (req, res) => {
+        res.send("hello!");
+
+    });*/
+
+/* app.listen(port, function() {
+        console.log(`serveur lancé sur port ${port}`);
+    });
+    */
 }
 
 main();
