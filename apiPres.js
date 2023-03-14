@@ -21,11 +21,15 @@ const apiServ = {
 
         });
 
-        app.get("api/customers", function(req,res) {
+        app.get("/customers", function(req,res) {
 
             const number = req.query.number; 
-            const customers = business.getAllCustomers();
-            res.json(customers);
+            const page = req.query.page;
+
+            const resCustomers = business.getCustomers(number,page);
+            //const customers = business.getAllCustomers();
+            //res.json(customers);
+            res.json(resCustomers);
         });
 
 
