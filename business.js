@@ -1,4 +1,4 @@
-const dal = require("dateLayer");
+const dal = require("dataLayer");
 const _ = require("underscore");
 const defaultNumber = 10;
 const defaultPage = 1;
@@ -12,6 +12,21 @@ const business = {
 
     getCustomers : function(number, page)
     {
+        if(number=== undefined || page === undefined){
+            number = defaultNumber;
+            page = defaultPage;
+        }
+        if(number > maxNumber){
+            number = maxNumber;
+        }
+
+        const resCustomers = dal.getCustomers(number,page);
+
+        resCustomers.page = page;
+        resCustomers.numberByPage = number;
+        resCustomers.totalPages = Math.ceil(resCustomers.total / number);
+
+        return resCustomers;
 
     },
 
